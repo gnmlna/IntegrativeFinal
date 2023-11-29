@@ -1,2 +1,2 @@
-# DjangoProjectCRUD
-Web Systems Technologies 2
+# Final For integrative
+final project
