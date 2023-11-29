@@ -17,7 +17,7 @@ def register(request):
     return render(request,'register.html',context) 
 
 def login(request):  
-    return render(request,'login.html',context)
+    return render(request,'login.html')
      
 def add(request):  
     if request.method == "POST":  
