@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+*, body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    
+}
+
+
+html, body {
+    height: 100%;
+    background-color: #2a5673;
+    
+}
+
+
+.form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+}
+
+.form-holder .form-content {
+    position: relative;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 60px;
+}
+
+.form-content .form-items {
+    border: 3px solid #fff;
+    padding: 40px;
+    display: inline-block;
+    width: 100%;
+    min-width: 540px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.form-content h3 {
+    color: #fff;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-content h3.form-title {
+    margin-bottom: 30px;
+}
+
+.form-content p {
+    color: #fff;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+
+.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+    color: #fff;
+}
+
+.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+
+
+.btn-primary{
+    background-color: #6C757D;
+    outline: none;
+    border: 0px;
+     box-shadow: none;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    background-color: #495056;
+    outline: none !important;
+    border: none !important;
+     box-shadow: none;
+}
+
+.form-content textarea {
+    position: static !important;
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    outline: none;
+    resize: none;
+    height: 120px;
+    -webkit-transition: none;
+    transition: none;
+    margin-bottom: 14px;
+}
+
+.form-content textarea:hover, .form-content textarea:focus {
+    border: 0;
+    background-color: #ebeff8;
+    color: #8D8D8D;
+}
+
+.mv-up{
+    margin-top: -9px !important;
+    margin-bottom: 8px !important;
+}
+
+.invalid-feedback{
+    color: #ff606e;
+}
+
+.valid-feedback{
+   color: #2acc80;
+}
+
+#neubar {
+      background: #fae8d2;
+      box-shadow: 4px 6px 12px rgba(0,0,0,0.4)
+    }
+
+    
+    
+    </style>
+</head>
+<body>
+    
+<div class="container">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        
+                        <form method="POST" class="post-form" action="/update/{{applicant.id}}">  
+                            {% csrf_token %}  
+                            <div class="container">   
+                                <div class="col-12">  
+                                    <h3>Update Details</h3>  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Beneficiary ID:</label>  
+                                    <input type="text" class="form-control" name="id" id="id" required maxlength="20" value="{{ applicant.id }}"/>    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Name:</label>  
+                                    <input type="text" class="form-control" name="name" id="name" required maxlength="100" value="{{ applicant.name }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Address:</label>  
+                                    <input type="text" class="form-control" name="address" id="address" required maxlength="15" value="{{ applicant.address }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Job:</label>  
+                                    <input type="text" class="form-control" name="job" id="job" required maxlength="15" value="{{ applicant.job }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Child Number:</label>  
+                                    <input type="text" class="form-control" name="childNumber" id="childNumber" required maxlength="15" value="{{ applicant.childNumber }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Civil Status:</label>  
+                                    <input type="text" class="form-control" name="civilStatus" id="civilStatus" required maxlength="15" value="{{ applicant.civilStatus }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Income:</label>  
+                                    <input type="text" class="form-control" name="income" id="income" required maxlength="15" value="{{ applicant.income }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Gender:</label>  
+                                    <input type="text" class="form-control" name="gender" id="gender" required maxlength="15" value="{{ applicant.gender }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Application Date:</label>  
+                                    <input type="date" class="form-control" name="appdate" id="appdate" required maxlength="15" value="{{ applicant.appdate }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Application Time:</label>  
+                                    <input type="text" class="form-control" name="apptime" id="apptime" required maxlength="15" placeholder="8:00AM TO 5:00PM ONLY" value="{{ applicant.apptime }}" />  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label>Status</label>  
+                                    <input type="text" class="form-control" name="status" id="status" maxlength="15" value="{{ applicant.status }}" />  
+                                </div>
+
+
+                              
+
+                                <div class="form-button mt-5"> 
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 120px;">Update</button>  
+                                   
+                                </div> 
+                            </div>  
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+</body> 
+</html>

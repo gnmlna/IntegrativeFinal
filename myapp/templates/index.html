@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+  
+{% block title %}Add{% endblock title %}
+  
+{% block content %}
+
+<div class="container">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Bayanihan Aid: Appointment</h3>
+                        <p>Bringing Hope and Relief to Communities</p>
+                        
+                        <form class="requires-validation" action="/add" method="POST">
+                            {% csrf_token %}
+                            <div class="col-md-12">
+                                <label>Name:</label>  
+                                {{ form.name }}  
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Address:</label>  
+                                {{ form.address }} 
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Occupation:</label>  
+                                {{ form.job }} 
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>No. of Child:</label>  
+                                {{ form.childNumber }} 
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Civil Status:</label>  
+                                {{ form.civilStatus }} 
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <label>Income:</label>  
+                                {{ form.income }}  
+                           </div>
+
+                           <div class="col-md-12">
+                                <label>Gender:</label>  
+                                {{ form.gender }} 
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Application Date:</label>  
+                                {{ form.appdate }} 
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Application Time:</label>  
+                                {{ form.apptime }} 
+                            </div>
+
+                            
+
+                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>  
+{% endblock content %} 
