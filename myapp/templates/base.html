@@ -216,10 +216,15 @@
                 <a class="nav-link mx-2 active" aria-current="page" href="#">Register</a>
               </li>
               
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link mx-2" href="show.html">Admin View</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#">Hello, {{request.user}}</a>
               </li>
-            
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="{% url 'logout' %}">Logout</a>
+              </li>
             </ul>
           </div>
         </div>

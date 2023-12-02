@@ -154,7 +154,10 @@
             <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
         </div>
     </form>
-	<div class="text-center">Already have an account? <a href="#">Login here</a></div>
+
+    {# form.errors is the form validator and checker for the user that have inputted #}
+    {{form.errors}}
+	<div class="text-center">Already have an account? <a href="{% url 'login' %}">Login here</a></div>
 </div>
 <script>
     var form_fields = document.getElementsByTagName('input')
